@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Guest Refund Calculator</title>
+
     <style>
         * {
             box-sizing: border-box;
@@ -32,7 +34,9 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
-        /* HEADER */
+        /* =========================
+           HEADER
+        ========================== */
 
         .header {
             background: #121212;
@@ -44,7 +48,7 @@
             margin: 0;
             font-size: 22px;
             font-weight: 700;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.4px;
         }
 
         .header p {
@@ -53,7 +57,10 @@
             color: #cfcfcf;
         }
 
-        /* HOW TO USE */
+
+        /* =========================
+           INSTRUCTIONS
+        ========================== */
 
         .instructions {
             padding: 22px 28px;
@@ -97,7 +104,10 @@
             font-size: 12px !important;
         }
 
-        /* CALCULATOR CONTENT */
+
+        /* =========================
+           CALCULATOR CONTENT
+        ========================== */
 
         .content {
             padding: 28px;
@@ -140,7 +150,10 @@
             box-shadow: 0 0 0 3px rgba(18, 18, 18, 0.07);
         }
 
-        /* AMOUNT */
+
+        /* =========================
+           REFUND AMOUNT
+        ========================== */
 
         .amount-wrapper {
             position: relative;
@@ -160,7 +173,10 @@
             padding-left: 30px;
         }
 
-        /* BUTTON */
+
+        /* =========================
+           BUTTON
+        ========================== */
 
         button {
             width: 100%;
@@ -185,7 +201,10 @@
             transform: translateY(0);
         }
 
-        /* ERROR */
+
+        /* =========================
+           ERROR
+        ========================== */
 
         .error {
             display: none;
@@ -198,7 +217,10 @@
             text-align: center;
         }
 
-        /* RESULTS */
+
+        /* =========================
+           RESULTS
+        ========================== */
 
         .result {
             display: none;
@@ -237,7 +259,10 @@
             color: #bdbdbd;
         }
 
-        /* RECONCILIATION */
+
+        /* =========================
+           REFUND BREAKDOWN
+        ========================== */
 
         .reconciliation {
             padding: 18px 20px;
@@ -294,6 +319,11 @@
             vertical-align: middle;
         }
 
+
+        /* =========================
+           MOBILE
+        ========================== */
+
         @media (max-width: 480px) {
 
             body {
@@ -311,23 +341,42 @@
                 padding-left: 22px;
                 padding-right: 22px;
             }
+
+            .total-row .recon-label,
+            .total-row .recon-value {
+                font-size: 14px;
+            }
         }
+
     </style>
 </head>
+
 
 <body>
 
     <div class="calculator">
 
-        <!-- HEADER -->
+
+        <!-- =========================
+             HEADER
+        ========================== -->
 
         <div class="header">
-            <h1>GEM Calculator</h1>
-            <p>Accommodation Fare Adjustment</p>
+
+            <h1>
+                Guest Refund Calculator
+            </h1>
+
+            <p>
+                Accommodation Fare Adjustment
+            </p>
+
         </div>
 
 
-        <!-- HOW TO USE -->
+        <!-- =========================
+             HOW TO USE
+        ========================== -->
 
         <div class="instructions">
 
@@ -343,26 +392,39 @@
                 breakdown to double-check the total refund.
             </p>
 
+
             <div class="example">
+
                 <strong>Example:</strong>
+
                 For a $200 guest refund, enter
                 <strong>-200</strong>.
+
             </div>
 
+
             <p class="ota-note">
+
                 <strong>OTA Reservations:</strong>
+
                 Booking.com, Airbnb, and other OTA reservations may
                 be handled differently depending on the source of
                 payment. Check with your Asset Manager if you have
                 questions.
+
             </p>
 
         </div>
 
 
-        <!-- CALCULATOR -->
+        <!-- =========================
+             CALCULATOR
+        ========================== -->
 
         <div class="content">
+
+
+            <!-- AREA -->
 
             <div class="field">
 
@@ -372,7 +434,11 @@
 
                 <select id="areas">
 
-                    <option value="" selected disabled>
+                    <option
+                        value=""
+                        selected
+                        disabled
+                    >
                         Select an area
                     </option>
 
@@ -409,15 +475,19 @@
             </div>
 
 
+            <!-- REFUND AMOUNT -->
+
             <div class="field">
 
                 <label for="amount">
-                    Total Guest Refund
+                    Refund Amount
                 </label>
 
                 <div class="amount-wrapper">
 
-                    <span class="dollar-sign">$</span>
+                    <span class="dollar-sign">
+                        $
+                    </span>
 
                     <input
                         type="number"
@@ -431,19 +501,34 @@
             </div>
 
 
+            <!-- CALCULATE BUTTON -->
+
             <button id="calculate">
                 CALCULATE ADJUSTMENT
             </button>
 
 
-            <div class="error" id="error">
+            <!-- ERROR -->
+
+            <div
+                class="error"
+                id="error"
+            >
                 Please select an area and enter a refund amount.
             </div>
 
 
-            <!-- RESULTS -->
+            <!-- =========================
+                 RESULTS
+            ========================== -->
 
-            <div class="result" id="result">
+            <div
+                class="result"
+                id="result"
+            >
+
+
+                <!-- MAIN ADJUSTMENT -->
 
                 <div class="result-header">
 
@@ -459,11 +544,13 @@
                     </p>
 
                     <p class="guesty-note">
-                        Amount to enter in Guesty
+                        Amount to Enter in Guesty
                     </p>
 
                 </div>
 
+
+                <!-- BREAKDOWN -->
 
                 <div class="reconciliation">
 
@@ -471,6 +558,8 @@
                         Refund Breakdown
                     </p>
 
+
+                    <!-- ADJUSTMENT -->
 
                     <div class="recon-row">
 
@@ -488,6 +577,8 @@
                     </div>
 
 
+                    <!-- TAX -->
+
                     <div class="recon-row">
 
                         <span class="recon-label">
@@ -504,13 +595,18 @@
                     </div>
 
 
+                    <!-- TOTAL -->
+
                     <div class="recon-row total-row">
 
                         <span class="recon-label">
+
                             Total Refund
+
                             <span class="verified">
                                 ✓ VERIFIED
                             </span>
+
                         </span>
 
                         <span
@@ -530,6 +626,10 @@
 
     </div>
 
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
     <script>
 
@@ -561,6 +661,8 @@
             document.getElementById("refundCheck");
 
 
+        /* FORMAT MONEY */
+
         function formatCurrency(value) {
 
             return value.toLocaleString(
@@ -576,6 +678,8 @@
         }
 
 
+        /* CALCULATE */
+
         function calculateAdjustment() {
 
             let refund =
@@ -584,6 +688,8 @@
             let area =
                 parseFloat(areaSelect.value);
 
+
+            /* VALIDATION */
 
             if (
                 isNaN(refund) ||
@@ -601,19 +707,20 @@
 
 
             /*
-                Refunds can be entered as either:
+                Allows either:
 
-                144
-                or
                 -144
+                or
+                 144
+
+                Both will calculate the same result.
             */
 
             refund = Math.abs(refund);
 
 
             /*
-                STEP 1:
-                Calculate Accommodation Fare Adjustment
+                ACCOMMODATION FARE ADJUSTMENT
 
                 Refund ÷ Area Multiplier
             */
@@ -627,8 +734,7 @@
 
 
             /*
-                STEP 2:
-                Calculate tax portion
+                TAX PORTION
 
                 Refund - Adjustment
             */
@@ -642,8 +748,7 @@
 
 
             /*
-                STEP 3:
-                Double-check refund
+                DOUBLE CHECK
 
                 Adjustment + Tax
             */
@@ -656,9 +761,7 @@
                 Math.round(totalCheck * 100) / 100;
 
 
-            /*
-                DISPLAY
-            */
+            /* DISPLAY RESULTS */
 
             adjustmentDisplay.textContent =
                 formatCurrency(adjustment);
@@ -678,18 +781,24 @@
         }
 
 
+        /* CALCULATE BUTTON */
+
         calculateButton.addEventListener(
             "click",
             calculateAdjustment
         );
 
 
+        /* PRESS ENTER TO CALCULATE */
+
         amountInput.addEventListener(
             "keydown",
             function(event) {
 
                 if (event.key === "Enter") {
+
                     calculateAdjustment();
+
                 }
 
             }
