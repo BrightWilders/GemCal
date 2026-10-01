@@ -57,27 +57,52 @@
             color: #cfcfcf;
         }
 
-
         /* =========================
-           INSTRUCTIONS
+           HOW TO USE
         ========================== */
 
-        .instructions {
-            padding: 22px 28px;
+        .instructions-wrapper {
             background: #f5f5e7;
             border-bottom: 1px solid #e7e4df;
         }
 
-        .instructions-title {
+        .instructions-toggle {
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 16px 28px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 7px;
-            margin-bottom: 9px;
+            background: #f5f5e7;
+            border: none;
+            border-radius: 0;
+            color: #121212;
             font-size: 13px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: #121212;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .instructions-toggle:hover {
+            background: #efefd9;
+        }
+
+        .toggle-icon {
+            font-size: 20px;
+            line-height: 1;
+            font-weight: 400;
+        }
+
+        .instructions {
+            padding: 2px 28px 22px;
+            background: #f5f5e7;
+        }
+
+        .instructions.collapsed {
+            display: none;
         }
 
         .instructions p {
@@ -103,7 +128,6 @@
             border-top: 1px solid #dedfca;
             font-size: 12px !important;
         }
-
 
         /* =========================
            CALCULATOR CONTENT
@@ -150,7 +174,6 @@
             box-shadow: 0 0 0 3px rgba(18, 18, 18, 0.07);
         }
 
-
         /* =========================
            REFUND AMOUNT
         ========================== */
@@ -173,12 +196,11 @@
             padding-left: 30px;
         }
 
-
         /* =========================
-           BUTTON
+           CALCULATE BUTTON
         ========================== */
 
-        button {
+        .calculate-button {
             width: 100%;
             height: 48px;
             border: none;
@@ -192,15 +214,14 @@
             transition: 0.2s ease;
         }
 
-        button:hover {
+        .calculate-button:hover {
             background: #dfe283;
             transform: translateY(-1px);
         }
 
-        button:active {
+        .calculate-button:active {
             transform: translateY(0);
         }
-
 
         /* =========================
            ERROR
@@ -216,7 +237,6 @@
             color: #b42318;
             text-align: center;
         }
-
 
         /* =========================
            RESULTS
@@ -258,7 +278,6 @@
             font-size: 11px;
             color: #bdbdbd;
         }
-
 
         /* =========================
            REFUND BREAKDOWN
@@ -319,7 +338,6 @@
             vertical-align: middle;
         }
 
-
         /* =========================
            MOBILE
         ========================== */
@@ -336,8 +354,17 @@
             }
 
             .header,
-            .instructions,
             .content {
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+
+            .instructions-toggle {
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+
+            .instructions {
                 padding-left: 22px;
                 padding-right: 22px;
             }
@@ -347,19 +374,14 @@
                 font-size: 14px;
             }
         }
-
     </style>
 </head>
-
 
 <body>
 
     <div class="calculator">
 
-
-        <!-- =========================
-             HEADER
-        ========================== -->
+        <!-- HEADER -->
 
         <div class="header">
 
@@ -374,52 +396,62 @@
         </div>
 
 
-        <!-- =========================
-             HOW TO USE
-        ========================== -->
+        <!-- HOW TO USE -->
 
-        <div class="instructions">
+        <div class="instructions-wrapper">
 
-            <div class="instructions-title">
-                💡 How to Use
+            <button
+                type="button"
+                class="instructions-toggle"
+                id="instructionsToggle"
+                aria-expanded="true"
+            >
+                <span>💡 How to Use</span>
+                <span class="toggle-icon" id="toggleIcon">−</span>
+            </button>
+
+
+            <div
+                class="instructions"
+                id="instructions"
+            >
+
+                <p>
+                    Enter the total amount being refunded to the guest
+                    and select the area where the unit is located.
+                    The calculator will determine the Accommodation Fare
+                    Adjustment to enter in Guesty and provide a tax
+                    breakdown to double-check the total refund.
+                </p>
+
+
+                <div class="example">
+
+                    <strong>Example:</strong>
+
+                    For a $200 guest refund, enter
+                    <strong>-200</strong>.
+
+                </div>
+
+
+                <p class="ota-note">
+
+                    <strong>OTA Reservations:</strong>
+
+                    Booking.com, Airbnb, and other OTA reservations may
+                    be handled differently depending on the source of
+                    payment. Check with your Asset Manager if you have
+                    questions.
+
+                </p>
+
             </div>
-
-            <p>
-                Enter the total amount being refunded to the guest
-                and select the area where the unit is located.
-                The calculator will determine the Accommodation Fare
-                Adjustment to enter in Guesty and provide a tax
-                breakdown to double-check the total refund.
-            </p>
-
-
-            <div class="example">
-
-                <strong>Example:</strong>
-
-                For a $200 guest refund, enter
-                <strong>-200</strong>.
-
-            </div>
-
-
-            <p class="ota-note">
-
-                <strong>OTA Reservations:</strong>
-
-                Booking.com, Airbnb, and other OTA reservations may
-                be handled differently depending on the source of
-                payment. Check with your Asset Manager if you have
-                questions.
-
-            </p>
 
         </div>
 
 
-        <!-- =========================
-             CALCULATOR
-        ========================== -->
+        <!-- CALCULATOR -->
 
         <div class="content">
 
@@ -501,9 +533,13 @@
             </div>
 
 
-            <!-- CALCULATE BUTTON -->
+            <!-- CALCULATE -->
 
-            <button id="calculate">
+            <button
+                type="button"
+                class="calculate-button"
+                id="calculate"
+            >
                 CALCULATE ADJUSTMENT
             </button>
 
@@ -518,17 +554,14 @@
             </div>
 
 
-            <!-- =========================
-                 RESULTS
-            ========================== -->
+            <!-- RESULTS -->
 
             <div
                 class="result"
                 id="result"
             >
 
-
-                <!-- MAIN ADJUSTMENT -->
+                <!-- MAIN RESULT -->
 
                 <div class="result-header">
 
@@ -550,7 +583,7 @@
                 </div>
 
 
-                <!-- BREAKDOWN -->
+                <!-- REFUND BREAKDOWN -->
 
                 <div class="reconciliation">
 
@@ -595,7 +628,7 @@
                     </div>
 
 
-                    <!-- TOTAL -->
+                    <!-- TOTAL REFUND -->
 
                     <div class="recon-row total-row">
 
@@ -627,11 +660,11 @@
     </div>
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
-
     <script>
+
+        /* =========================
+           ELEMENTS
+        ========================== */
 
         const calculateButton =
             document.getElementById("calculate");
@@ -660,8 +693,19 @@
         const refundCheck =
             document.getElementById("refundCheck");
 
+        const instructions =
+            document.getElementById("instructions");
 
-        /* FORMAT MONEY */
+        const instructionsToggle =
+            document.getElementById("instructionsToggle");
+
+        const toggleIcon =
+            document.getElementById("toggleIcon");
+
+
+        /* =========================
+           FORMAT MONEY
+        ========================== */
 
         function formatCurrency(value) {
 
@@ -678,7 +722,52 @@
         }
 
 
-        /* CALCULATE */
+        /* =========================
+           TOGGLE HOW TO USE
+        ========================== */
+
+        function toggleInstructions() {
+
+            const isCollapsed =
+                instructions.classList.contains("collapsed");
+
+
+            if (isCollapsed) {
+
+                instructions.classList.remove("collapsed");
+
+                toggleIcon.textContent = "−";
+
+                instructionsToggle.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+            } else {
+
+                instructions.classList.add("collapsed");
+
+                toggleIcon.textContent = "+";
+
+                instructionsToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        }
+
+
+        instructionsToggle.addEventListener(
+            "click",
+            toggleInstructions
+        );
+
+
+        /* =========================
+           CALCULATE
+        ========================== */
 
         function calculateAdjustment() {
 
@@ -689,7 +778,7 @@
                 parseFloat(areaSelect.value);
 
 
-            /* VALIDATION */
+            /* VALIDATE */
 
             if (
                 isNaN(refund) ||
@@ -707,13 +796,13 @@
 
 
             /*
-                Allows either:
+                User can enter:
 
                 -144
-                or
+                OR
                  144
 
-                Both will calculate the same result.
+                Both calculate the same refund.
             */
 
             refund = Math.abs(refund);
@@ -722,7 +811,7 @@
             /*
                 ACCOMMODATION FARE ADJUSTMENT
 
-                Refund ÷ Area Multiplier
+                Total Refund ÷ Area Multiplier
             */
 
             let adjustment =
@@ -736,7 +825,7 @@
             /*
                 TAX PORTION
 
-                Refund - Adjustment
+                Total Refund - Adjustment
             */
 
             let tax =
@@ -761,7 +850,9 @@
                 Math.round(totalCheck * 100) / 100;
 
 
-            /* DISPLAY RESULTS */
+            /* =========================
+               DISPLAY RESULTS
+            ========================== */
 
             adjustmentDisplay.textContent =
                 formatCurrency(adjustment);
@@ -778,10 +869,42 @@
 
             resultBox.style.display = "block";
 
+
+            /* =========================
+               COLLAPSE HOW TO USE
+               AFTER CALCULATION
+            ========================== */
+
+            instructions.classList.add("collapsed");
+
+            toggleIcon.textContent = "+";
+
+            instructionsToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+
+            /*
+                Scroll result into view on
+                smaller screens.
+            */
+
+            setTimeout(function () {
+
+                resultBox.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest"
+                });
+
+            }, 100);
+
         }
 
 
-        /* CALCULATE BUTTON */
+        /* =========================
+           CALCULATE BUTTON
+        ========================== */
 
         calculateButton.addEventListener(
             "click",
@@ -789,11 +912,13 @@
         );
 
 
-        /* PRESS ENTER TO CALCULATE */
+        /* =========================
+           ENTER KEY
+        ========================== */
 
         amountInput.addEventListener(
             "keydown",
-            function(event) {
+            function (event) {
 
                 if (event.key === "Enter") {
 
