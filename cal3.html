@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 30px 20px;
             font-family: Arial, Helvetica, sans-serif;
             background: #f7f6f4;
             color: #1f1f1f;
@@ -22,13 +24,15 @@
 
         .calculator {
             width: 100%;
-            max-width: 420px;
+            max-width: 480px;
             background: #ffffff;
             border: 1px solid #e7e4df;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
+
+        /* HEADER */
 
         .header {
             background: #121212;
@@ -48,6 +52,52 @@
             font-size: 13px;
             color: #cfcfcf;
         }
+
+        /* HOW TO USE */
+
+        .instructions {
+            padding: 22px 28px;
+            background: #f5f5e7;
+            border-bottom: 1px solid #e7e4df;
+        }
+
+        .instructions-title {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 9px;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #121212;
+        }
+
+        .instructions p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.55;
+            color: #4f4f4f;
+        }
+
+        .example {
+            margin-top: 12px;
+            padding: 11px 13px;
+            background: #ffffff;
+            border-left: 3px solid #dadd78;
+            border-radius: 5px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .ota-note {
+            margin-top: 12px !important;
+            padding-top: 12px;
+            border-top: 1px solid #dedfca;
+            font-size: 12px !important;
+        }
+
+        /* CALCULATOR CONTENT */
 
         .content {
             padding: 28px;
@@ -90,6 +140,8 @@
             box-shadow: 0 0 0 3px rgba(18, 18, 18, 0.07);
         }
 
+        /* AMOUNT */
+
         .amount-wrapper {
             position: relative;
         }
@@ -107,6 +159,8 @@
         .amount-wrapper input {
             padding-left: 30px;
         }
+
+        /* BUTTON */
 
         button {
             width: 100%;
@@ -131,51 +185,131 @@
             transform: translateY(0);
         }
 
+        /* ERROR */
+
+        .error {
+            display: none;
+            margin-top: 13px;
+            padding: 10px;
+            background: #fff4f2;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #b42318;
+            text-align: center;
+        }
+
+        /* RESULTS */
+
         .result {
             display: none;
-            margin-top: 24px;
-            padding: 20px;
-            background: #f5f5e7;
-            border: 1px solid #e7e99b;
-            border-radius: 10px;
+            margin-top: 26px;
+            border: 1px solid #dedbd5;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .result-header {
+            padding: 22px;
+            background: #121212;
+            color: #ffffff;
             text-align: center;
         }
 
         .result-label {
             margin: 0 0 7px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.6px;
-            color: #666666;
+            letter-spacing: 0.7px;
+            color: #cfcfcf;
         }
 
         .result-amount {
             margin: 0;
-            font-size: 32px;
+            font-size: 34px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .guesty-note {
+            margin: 6px 0 0;
+            font-size: 11px;
+            color: #bdbdbd;
+        }
+
+        /* RECONCILIATION */
+
+        .reconciliation {
+            padding: 18px 20px;
+            background: #ffffff;
+        }
+
+        .recon-title {
+            margin: 0 0 8px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #777777;
+        }
+
+        .recon-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 9px 0;
+            font-size: 14px;
+        }
+
+        .recon-label {
+            color: #555555;
+        }
+
+        .recon-value {
             font-weight: 700;
             color: #121212;
         }
 
-        .error {
-            display: none;
-            margin-top: 12px;
-            font-size: 13px;
-            color: #b42318;
-            text-align: center;
+        .total-row {
+            margin-top: 7px;
+            padding-top: 14px;
+            border-top: 2px solid #121212;
+        }
+
+        .total-row .recon-label,
+        .total-row .recon-value {
+            font-size: 16px;
+            font-weight: 800;
+            color: #121212;
+        }
+
+        .verified {
+            display: inline-block;
+            margin-left: 5px;
+            padding: 2px 6px;
+            background: #e7e99b;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 800;
+            vertical-align: middle;
         }
 
         @media (max-width: 480px) {
+
             body {
-                padding: 20px;
+                padding: 15px;
+                align-items: flex-start;
             }
 
             .calculator {
                 max-width: 100%;
             }
 
+            .header,
+            .instructions,
             .content {
-                padding: 22px;
+                padding-left: 22px;
+                padding-right: 22px;
             }
         }
     </style>
@@ -185,82 +319,276 @@
 
     <div class="calculator">
 
+        <!-- HEADER -->
+
         <div class="header">
-            <h1>Refund Calculator</h1>
-            <p>Guest refund accommodation adjustment</p>
+            <h1>GEM Calculator</h1>
+            <p>Accommodation Fare Adjustment</p>
         </div>
+
+
+        <!-- HOW TO USE -->
+
+        <div class="instructions">
+
+            <div class="instructions-title">
+                💡 How to Use
+            </div>
+
+            <p>
+                Enter the total amount being refunded to the guest
+                and select the area where the unit is located.
+                The calculator will determine the Accommodation Fare
+                Adjustment to enter in Guesty and provide a tax
+                breakdown to double-check the total refund.
+            </p>
+
+            <div class="example">
+                <strong>Example:</strong>
+                For a $200 guest refund, enter
+                <strong>-200</strong>.
+            </div>
+
+            <p class="ota-note">
+                <strong>OTA Reservations:</strong>
+                Booking.com, Airbnb, and other OTA reservations may
+                be handled differently depending on the source of
+                payment. Check with your Asset Manager if you have
+                questions.
+            </p>
+
+        </div>
+
+
+        <!-- CALCULATOR -->
 
         <div class="content">
 
             <div class="field">
-                <label for="areas">Area</label>
+
+                <label for="areas">
+                    Area
+                </label>
 
                 <select id="areas">
-                    <option value="" selected disabled>Select an area</option>
-                    <option value="1.135">TPA - Hillsborough</option>
-                    <option value="1.130">TPA - Pinellas</option>
-                    <option value="1.125">Monroe</option>
-                    <option value="1.130">PCB</option>
-                    <option value="1.130">Destin</option>
-                    <option value="1.125">Daytona</option>
-                    <option value="1.140">Rhode Island</option>
+
+                    <option value="" selected disabled>
+                        Select an area
+                    </option>
+
+                    <option value="1.125">
+                        TPA - Hillsborough
+                    </option>
+
+                    <option value="1.130">
+                        TPA - Pinellas
+                    </option>
+
+                    <option value="1.125">
+                        Monroe
+                    </option>
+
+                    <option value="1.130">
+                        PCB
+                    </option>
+
+                    <option value="1.120">
+                        Unincorporated PCB
+                    </option>
+
+                    <option value="1.130">
+                        Destin
+                    </option>
+
+                    <option value="1.125">
+                        Daytona
+                    </option>
+
                 </select>
+
             </div>
 
+
             <div class="field">
-                <label for="amount">Guest Refund</label>
+
+                <label for="amount">
+                    Total Guest Refund
+                </label>
 
                 <div class="amount-wrapper">
+
                     <span class="dollar-sign">$</span>
 
                     <input
                         type="number"
                         id="amount"
                         placeholder="0.00"
-                        min="0"
                         step="0.01"
                     >
+
                 </div>
+
             </div>
+
 
             <button id="calculate">
                 CALCULATE ADJUSTMENT
             </button>
 
+
             <div class="error" id="error">
                 Please select an area and enter a refund amount.
             </div>
 
-            <div class="result" id="result">
-                <p class="result-label">
-                    Accommodation Fare Adjustment
-                </p>
 
-                <p class="result-amount" id="total">
-                    $0.00
-                </p>
+            <!-- RESULTS -->
+
+            <div class="result" id="result">
+
+                <div class="result-header">
+
+                    <p class="result-label">
+                        Accommodation Fare Adjustment
+                    </p>
+
+                    <p
+                        class="result-amount"
+                        id="adjustment"
+                    >
+                        $0.00
+                    </p>
+
+                    <p class="guesty-note">
+                        Amount to enter in Guesty
+                    </p>
+
+                </div>
+
+
+                <div class="reconciliation">
+
+                    <p class="recon-title">
+                        Refund Breakdown
+                    </p>
+
+
+                    <div class="recon-row">
+
+                        <span class="recon-label">
+                            Adjustment
+                        </span>
+
+                        <span
+                            class="recon-value"
+                            id="adjustmentBreakdown"
+                        >
+                            $0.00
+                        </span>
+
+                    </div>
+
+
+                    <div class="recon-row">
+
+                        <span class="recon-label">
+                            + Tax
+                        </span>
+
+                        <span
+                            class="recon-value"
+                            id="taxAmount"
+                        >
+                            $0.00
+                        </span>
+
+                    </div>
+
+
+                    <div class="recon-row total-row">
+
+                        <span class="recon-label">
+                            Total Refund
+                            <span class="verified">
+                                ✓ VERIFIED
+                            </span>
+                        </span>
+
+                        <span
+                            class="recon-value"
+                            id="refundCheck"
+                        >
+                            $0.00
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
+
     </div>
 
 
     <script>
-        const calculateButton = document.getElementById("calculate");
-        const amountInput = document.getElementById("amount");
-        const areaSelect = document.getElementById("areas");
-        const resultBox = document.getElementById("result");
-        const totalDisplay = document.getElementById("total");
-        const errorMessage = document.getElementById("error");
+
+        const calculateButton =
+            document.getElementById("calculate");
+
+        const amountInput =
+            document.getElementById("amount");
+
+        const areaSelect =
+            document.getElementById("areas");
+
+        const resultBox =
+            document.getElementById("result");
+
+        const errorMessage =
+            document.getElementById("error");
+
+        const adjustmentDisplay =
+            document.getElementById("adjustment");
+
+        const adjustmentBreakdown =
+            document.getElementById("adjustmentBreakdown");
+
+        const taxDisplay =
+            document.getElementById("taxAmount");
+
+        const refundCheck =
+            document.getElementById("refundCheck");
+
+
+        function formatCurrency(value) {
+
+            return value.toLocaleString(
+                "en-US",
+                {
+                    style: "currency",
+                    currency: "USD",
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }
+            );
+
+        }
 
 
         function calculateAdjustment() {
 
-            const amount = parseFloat(amountInput.value);
-            const area = parseFloat(areaSelect.value);
+            let refund =
+                parseFloat(amountInput.value);
 
-            // Validate fields
-            if (isNaN(amount) || isNaN(area) || amount < 0) {
+            let area =
+                parseFloat(areaSelect.value);
+
+
+            if (
+                isNaN(refund) ||
+                isNaN(area)
+            ) {
 
                 resultBox.style.display = "none";
                 errorMessage.style.display = "block";
@@ -268,35 +596,107 @@
                 return;
             }
 
+
             errorMessage.style.display = "none";
 
-            // Calculate accommodation fare adjustment
-            const total = amount / area;
 
-            // Format as currency
-            totalDisplay.textContent = total.toLocaleString("en-US", {
-                style: "currency",
-                currency: "USD",
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
+            /*
+                Refunds can be entered as either:
+
+                144
+                or
+                -144
+            */
+
+            refund = Math.abs(refund);
+
+
+            /*
+                STEP 1:
+                Calculate Accommodation Fare Adjustment
+
+                Refund ÷ Area Multiplier
+            */
+
+            let adjustment =
+                refund / area;
+
+
+            adjustment =
+                Math.round(adjustment * 100) / 100;
+
+
+            /*
+                STEP 2:
+                Calculate tax portion
+
+                Refund - Adjustment
+            */
+
+            let tax =
+                refund - adjustment;
+
+
+            tax =
+                Math.round(tax * 100) / 100;
+
+
+            /*
+                STEP 3:
+                Double-check refund
+
+                Adjustment + Tax
+            */
+
+            let totalCheck =
+                adjustment + tax;
+
+
+            totalCheck =
+                Math.round(totalCheck * 100) / 100;
+
+
+            /*
+                DISPLAY
+            */
+
+            adjustmentDisplay.textContent =
+                formatCurrency(adjustment);
+
+            adjustmentBreakdown.textContent =
+                formatCurrency(adjustment);
+
+            taxDisplay.textContent =
+                formatCurrency(tax);
+
+            refundCheck.textContent =
+                formatCurrency(totalCheck);
+
 
             resultBox.style.display = "block";
+
         }
 
 
-        calculateButton.addEventListener("click", calculateAdjustment);
+        calculateButton.addEventListener(
+            "click",
+            calculateAdjustment
+        );
 
 
-        // Allow Enter to calculate
-        amountInput.addEventListener("keydown", function(event) {
+        amountInput.addEventListener(
+            "keydown",
+            function(event) {
 
-            if (event.key === "Enter") {
-                calculateAdjustment();
+                if (event.key === "Enter") {
+                    calculateAdjustment();
+                }
+
             }
+        );
 
-        });
     </script>
 
 </body>
+
 </html>
